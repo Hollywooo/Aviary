@@ -1,0 +1,12 @@
+Remedial Objectives Comparison
+10/21/2018 8:58:00 PM
+Analytical File: System.Windows.Forms.OpenFileDialog: Title: , FileName: C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\ROs\testSamples.csv
+RO File: System.Windows.Forms.OpenFileDialog: Title: , FileName: C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\ROs\testROs.csv
+
+Sample 1 Chem 1,500-23-4,14.2,mg/kg,14.2,No Exceedance
+Sample 1 Chem 2,123-24-25,64,mg/kg,24,Exceedance
+Sample 1 Chem 3,1685-23-4,20,mg/kg,-9999,ERROR - Invalid Comparison
+Sample 1 Chem 4,153-98-2,0.55,mg/kg,1.6,No Exceedance
+Sample 2 Chem 1,500-23-4,15,mg/L,-9999,ERROR - Invalid Comparison
+Sample 2 Chem 2,123-24-25,0.25,mg/L,0.06,Exceedance
+Sample 2 Chem 3,1685-23-4,3.66,mg/L,-9999,ERROR - Invalid Comparison
