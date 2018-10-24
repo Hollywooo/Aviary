@@ -36,6 +36,14 @@
             this.buttonPerformComp = new System.Windows.Forms.Button();
             this.buttonExportToCSV = new System.Windows.Forms.Button();
             this.listBoxDisplayResults = new System.Windows.Forms.ListBox();
+            this.panelFilters = new System.Windows.Forms.Panel();
+            this.buttonExceedOnly = new System.Windows.Forms.Button();
+            this.buttonSoilOnly = new System.Windows.Forms.Button();
+            this.buttonWaterOnly = new System.Windows.Forms.Button();
+            this.labelFilters = new System.Windows.Forms.Label();
+            this.labelByExceedance = new System.Windows.Forms.Label();
+            this.labelByMatrix = new System.Windows.Forms.Label();
+            this.panelFilters.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLoadROs
@@ -85,10 +93,62 @@
             this.listBoxDisplayResults.Name = "listBoxDisplayResults";
             this.listBoxDisplayResults.SelectedIndexChanged += new System.EventHandler(this.listBoxDisplayResults_SelectedIndexChanged);
             // 
+            // panelFilters
+            // 
+            this.panelFilters.Controls.Add(this.labelByMatrix);
+            this.panelFilters.Controls.Add(this.labelByExceedance);
+            this.panelFilters.Controls.Add(this.labelFilters);
+            this.panelFilters.Controls.Add(this.buttonWaterOnly);
+            this.panelFilters.Controls.Add(this.buttonSoilOnly);
+            this.panelFilters.Controls.Add(this.buttonExceedOnly);
+            resources.ApplyResources(this.panelFilters, "panelFilters");
+            this.panelFilters.Name = "panelFilters";
+            this.panelFilters.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFilters_Paint);
+            // 
+            // buttonExceedOnly
+            // 
+            resources.ApplyResources(this.buttonExceedOnly, "buttonExceedOnly");
+            this.buttonExceedOnly.Name = "buttonExceedOnly";
+            this.buttonExceedOnly.UseVisualStyleBackColor = true;
+            this.buttonExceedOnly.Click += new System.EventHandler(this.buttonExceedOnly_Click);
+            // 
+            // buttonSoilOnly
+            // 
+            resources.ApplyResources(this.buttonSoilOnly, "buttonSoilOnly");
+            this.buttonSoilOnly.Name = "buttonSoilOnly";
+            this.buttonSoilOnly.UseVisualStyleBackColor = true;
+            this.buttonSoilOnly.Click += new System.EventHandler(this.buttonSoilOnly_Click);
+            // 
+            // buttonWaterOnly
+            // 
+            resources.ApplyResources(this.buttonWaterOnly, "buttonWaterOnly");
+            this.buttonWaterOnly.Name = "buttonWaterOnly";
+            this.buttonWaterOnly.UseVisualStyleBackColor = true;
+            this.buttonWaterOnly.Click += new System.EventHandler(this.buttonWaterOnly_Click);
+            // 
+            // labelFilters
+            // 
+            resources.ApplyResources(this.labelFilters, "labelFilters");
+            this.labelFilters.Name = "labelFilters";
+            this.labelFilters.Click += new System.EventHandler(this.labelFilters_Click);
+            // 
+            // labelByExceedance
+            // 
+            resources.ApplyResources(this.labelByExceedance, "labelByExceedance");
+            this.labelByExceedance.Name = "labelByExceedance";
+            this.labelByExceedance.Click += new System.EventHandler(this.labelByExceedance_Click);
+            // 
+            // labelByMatrix
+            // 
+            resources.ApplyResources(this.labelByMatrix, "labelByMatrix");
+            this.labelByMatrix.Name = "labelByMatrix";
+            this.labelByMatrix.Click += new System.EventHandler(this.labelByMatrix_Click);
+            // 
             // GUIFormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelFilters);
             this.Controls.Add(this.listBoxDisplayResults);
             this.Controls.Add(this.buttonExportToCSV);
             this.Controls.Add(this.buttonPerformComp);
@@ -99,6 +159,8 @@
             this.Name = "GUIFormMain";
             this.ShowIcon = false;
             this.Load += new System.EventHandler(this.GUIFormMain_Load);
+            this.panelFilters.ResumeLayout(false);
+            this.panelFilters.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +175,12 @@
         private System.Windows.Forms.Button buttonPerformComp;
         private System.Windows.Forms.Button buttonExportToCSV;
         private System.Windows.Forms.ListBox listBoxDisplayResults;
+        private System.Windows.Forms.Panel panelFilters;
+        private System.Windows.Forms.Button buttonWaterOnly;
+        private System.Windows.Forms.Button buttonSoilOnly;
+        private System.Windows.Forms.Button buttonExceedOnly;
+        private System.Windows.Forms.Label labelByMatrix;
+        private System.Windows.Forms.Label labelByExceedance;
+        private System.Windows.Forms.Label labelFilters;
     }
 }

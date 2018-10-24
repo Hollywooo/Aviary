@@ -36,11 +36,75 @@ namespace Aviary
                 compResult = inputComp.ComparisonResult[iter].Result.ToString();
 
                 report = report + $"{id}" + "," + $"{cas}" + "," + $"{result}" + "," + $"{units}" + "," + $"{ro}" + "," + $"{compResult}" + "\r\n"; //and so forth, comma-delimited
-
             }
 
-
             File.WriteAllText("C:\\Users\\jsirk\\Dropbox\\GB Files\\C#\\Aviary\\Output\\Report.txt", report);
+        }
+
+        public static List<string> ListBoxHeader()
+        {
+            List<string> display = new List<string>();
+            var id = "ID";
+            var cas = "CAS_NUMBER";
+            var result = "RESULT";
+            var units = "RESULT_UNITS";
+            var ro = "RO";
+            var compResult = "COMPARISON_RESULT";
+            string reportStart = $"{id}" + "\t" + $"{cas}" + "\t" + $"{result}" + "\t" + $"{units}" + "\t" + $"{ro}" + "\t" + $"{compResult}"; //header text build
+            display.Add(reportStart);
+
+            return display;
+        }
+
+        public static List<string> ListBoxBody(Comparison inputComp, List<string> listIn)
+        {
+            int iter = 0;
+            string reportLine = "";
+            var id = "ID";
+            var cas = "CAS_NUMBER";
+            var result = "RESULT";
+            var units = "RESULT_UNITS";
+            var ro = "RO";
+            var compResult = "COMPARISON_RESULT";
+
+            for (iter = 0; iter < inputComp.AnalyticalComp.SampleID.Length - 1; iter++)
+            {
+                id = inputComp.AnalyticalComp.SampleID[iter];
+                cas = inputComp.AnalyticalComp.CASNum[iter];
+                result = Convert.ToString(inputComp.AnalyticalComp.Result[iter]);
+                units = inputComp.AnalyticalComp.Units[iter];
+                ro = inputComp.ComparisonResult[iter].ROUsed.ToString();
+                compResult = inputComp.ComparisonResult[iter].Result.ToString();
+
+                reportLine = $"{id}" + "\t" + $"{cas}" + "\t" + $"{result}" + "\t" + $"{units}" + "\t" + $"{ro}" + "\t" + $"{compResult}"; //tab delimited text build
+                listIn.Add(reportLine);
+            }
+
+            return listIn;
+        }
+
+
+        public static List<string> ListBoxOutput(Comparison inputComp)
+        {
+            List<string> display = ListBoxBody(inputComp, ListBoxHeader());
+            return display;
+        }
+
+        public static List<string> ListBoxOutputXCDOnly(Comparison inputComp)
+        {
+            List<string> displaySource = ListBoxBody(inputComp, ListBoxHeader());
+            List<string> displayXCDOnly = ListBoxHeader();
+
+            foreach (string entry in displaySource)
+            {
+                if (entry.Contains("Exceedance") && !entry.Contains("No"))
+                {
+                    displayXCDOnly.Add(entry);
+                }
+                else { }
+            }
+
+            return displayXCDOnly;
         }
     }
 }

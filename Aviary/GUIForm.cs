@@ -45,42 +45,14 @@ namespace Aviary
         {
             ////Display results in listbox
             results = new Comparison(ana, obj);
-            List<string> display = new List<string>();
-
-            int iter = 0;
-            var id = "ID";
-            var cas = "CAS_NUMBER";
-            var result = "RESULT";
-            var units = "RESULT_UNITS";
-            var ro = "RO";
-            var compResult = "COMPARISON_RESULT";
-            string reportStart = $"{id}" + "\t" + $"{cas}" + "\t" + $"{result}" + "\t" + $"{units}" + "\t" + $"{ro}" + "\t" + $"{compResult}"; //header text build
-            string reportLine = "";
-
-            display.Add(reportStart);
-
-            for (iter = 0; iter < results.AnalyticalComp.SampleID.Length - 1; iter++)
-            {
-                id = results.AnalyticalComp.SampleID[iter];
-                cas = results.AnalyticalComp.CASNum[iter];
-                result = Convert.ToString(results.AnalyticalComp.Result[iter]);
-                units = results.AnalyticalComp.Units[iter];
-                ro = results.ComparisonResult[iter].ROUsed.ToString();
-                compResult = results.ComparisonResult[iter].Result.ToString();
-
-                
-                reportLine = $"{id}" + "\t" + $"{cas}" + "\t" + $"{result}" + "\t" + $"{units}" + "\t" + $"{ro}" + "\t" + $"{compResult}"; //tab delimited text build
-                display.Add(reportLine);
-
-            }
-
+            List<string> display = Output.ListBoxOutput(results);
             listBoxDisplayResults.DataSource = display;
-
+            buttonExceedOnly.Enabled = true;
         }
 
         private void buttonExportToCSV_Click(object sender, EventArgs e)
         {
-            ////Export a csv            
+            ////Export a csv
             Output.Report(results);            
         }
 
@@ -92,6 +64,43 @@ namespace Aviary
         private void listBoxDisplayResults_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void panelFilters_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelFilters_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelByExceedance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelByMatrix_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonExceedOnly_Click(object sender, EventArgs e)
+        {
+            results = new Comparison(ana, obj);
+            List<string> displayXCDOnly = Output.ListBoxOutputXCDOnly(results);
+            listBoxDisplayResults.DataSource = displayXCDOnly;
+        }
+
+        private void buttonWaterOnly_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSoilOnly_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
