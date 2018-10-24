@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,13 @@
   <ItemGroup>
     <Compile Include="Analytical.cs" />
     <Compile Include="Comparison.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="GUIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIForm.Designer.cs">
+      <DependentUpon>GUIForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objectives.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Program.cs" />
@@ -53,6 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUIForm.resx">
+      <DependentUpon>GUIForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

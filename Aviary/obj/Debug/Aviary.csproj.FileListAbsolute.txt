@@ -5,3 +5,5 @@ C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.exe
 C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.pdb
 C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.csprojAssemblyReference.cache
 C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.csproj.CoreCompileInputs.cache
+C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.GUIFormMain.resources
+C:\Users\jsirk\Dropbox\GB Files\C#\Aviary\Aviary\obj\Debug\Aviary.csproj.GenerateResource.cache
