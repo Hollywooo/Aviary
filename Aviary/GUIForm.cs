@@ -53,7 +53,8 @@ namespace Aviary
         private void buttonExportToCSV_Click(object sender, EventArgs e)
         {
             ////Export a csv
-            Output.Report(results);            
+            Output.Report(results);
+            Output.TextReport(results);
         }
 
         private void GUIFormMain_Load(object sender, EventArgs e)
